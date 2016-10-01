@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .container
+    .row
+      .jumbotron
+        h1 Mutable
+        p This service allows you to mute annoying Twitter users from spamming your feed. Set a duration for the mute and the user will be unmuted after thta duration.
+        a(href='/request-token')
+          button(class='btn btn-primary')= 'Mute now >'
