@@ -7,6 +7,7 @@ http.post = require('http-post');
 var twitter = new Twitter({
   consumerKey: 'LJED4VTgNSd8WQ0S5bAmi5pZB',
   consumerSecret: 'wye1TtPPmoGMCebWVZRK8YyM7f0g88rHmRX2uxYcsDS5YMBHrY',
+  //callback: 'http://localhost:8080/acces-token'
   callback: 'http://getmuted.com/access-token'
 });
 
