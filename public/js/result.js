@@ -6,6 +6,14 @@ $('#duration-modal').on('show.bs.modal', function (event) {
   id = button.data('id');
 });
 
+$('.mute-button').on('click', function() {
+  if ($(this).hasClass("disabled")) {
+    event.stopPropagation()
+  } else {
+    $('#applyRemoveDialog').modal("show");
+  }
+});
+
 $('#final-mute-button').on('click', function() {
   var radio_selected = $('#choices input:radio:checked').val();
   console.log(radio_selected + " " + id);
@@ -16,4 +24,7 @@ $('#final-mute-button').on('click', function() {
       id: id
     }
   });
+
+  $('#duration-modal').modal('hide');
+  $('button[data-id=' + id + ']').removeClass('btn-danger').addClass('btn-default').addClass('disabled');
 });
