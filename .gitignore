@@ -1,2 +1,4 @@
 .DS_Store
 node_modules/
+lambda/Mute/node_modules/
+lambda/Unmute/node_modules/

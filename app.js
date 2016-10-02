@@ -1,11 +1,13 @@
 var express = require('express');
 var app = express();
 var Twitter = require('node-twitter-api');
+var http = require('http');
+http.post = require('http-post');
 
 var twitter = new Twitter({
   consumerKey: 'LJED4VTgNSd8WQ0S5bAmi5pZB',
   consumerSecret: 'wye1TtPPmoGMCebWVZRK8YyM7f0g88rHmRX2uxYcsDS5YMBHrY',
-  callback: 'http://localhost:8080/access-token'
+  callback: 'http://getmuted.com/access-token'
 });
 
 var _requestSecret;
@@ -72,11 +74,15 @@ app.get('/search', function(req, res) {
 });
 
 app.get('/prepare-data', function(req, res) {
-  res.redirect('/db/new', {
-    consumerId: accessToken,
-    consumerSecret: accessSecret,
+  var data = {
+    consumerId: _accessToken,
+    consumerSecret: _accessSecret,
     userId: req.query.id,
     expire: req.query.duration
+  };
+  
+  http.post('/db/new', data, function(res) {
+    console.log(res);
   });
 });
 
