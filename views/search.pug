@@ -3,6 +3,11 @@ extends layout
 block content
   div.container
     div.row
+      div.text-center(style='margin: 15px')
+        h3 Mutable:
+        p Choose who you want to mute, select how long to mute them for, and we'll handle the rest.
+  div.container
+    div.row
       div.table-responsive
         table(class='table')
           each user in results
