@@ -9,10 +9,10 @@ exports.handler = function(event, context, callback) {
     var consumerSecret = event.consumerSecret;
 
     const client = new Twitter({
-        consumer_key: consumerId,
-        consumer_secret: consumerSecret,
-        access_token_key: '782274256671350784-l0dWnhmZwVugjGv5gPCumPqODmQuVTt',
-        access_token_secret: 'tPs4ggAT3JqTYwM5LxFHzkcTYTe5lSVFsDZ3e0IF4oS5i'
+        consumer_key: "LJED4VTgNSd8WQ0S5bAmi5pZB",
+        consumer_secret: "wye1TtPPmoGMCebWVZRK8YyM7f0g88rHmRX2uxYcsDS5YMBHrY",
+        access_token_key: consumerId,
+        access_token_secret: consumerSecret
     })
 
     const params = {user_id: userId};
