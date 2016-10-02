@@ -1,0 +1,46 @@
+extends layout
+
+block content
+  div.container
+    div.row
+      div.table-responsive
+        table(class='table')
+          each user in results
+            tr
+              td
+                img(src= user.profile_image_url)
+              td
+                h4= user.name
+              td
+                button(class='btn btn-danger' data-toggle='modal' data-target='#duration-modal' data-id= user.id) Mute
+  div.modal.fade#duration-modal(tabindex="-1" role="dialog")
+    div.modal-dialog(role="document")
+      div.modal-content
+        div.modal-header
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(aria-hidden="true") &times;
+          h4.modal-title Duration?
+        div.modal-body
+          form.form#timeform
+            div.form-group
+              div.input-group
+                div.radio#choices
+                  label.radio
+                    input(type='radio' name='duration' value='60000' checked)
+                    | 1 minute
+                  label.radio
+                    input(type='radio' name='duration' value='3600000')
+                    | 1 hour
+                  label.radio
+                    input(type='radio' name='duration' value='86400000')
+                    | 1 day
+                  label.radio
+                    input(type='radio' name='duration' value='604800000') 
+                    | 1 week
+                  label.radio
+                    input(type='radio' name='duration' value='18144000000')
+                    | 1 month
+        div.modal-footer
+          button.btn.btn-default(type="button" data-dismiss="modal") Cancel
+          button.btn.btn-danger#final-mute-button(type="button") Mute
+  script(src='js/result.js')
