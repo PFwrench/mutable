@@ -5,19 +5,21 @@ var Twitter = require('node-twitter-api');
 var twitter = new Twitter({
   consumerKey: 'LJED4VTgNSd8WQ0S5bAmi5pZB',
   consumerSecret: 'wye1TtPPmoGMCebWVZRK8YyM7f0g88rHmRX2uxYcsDS5YMBHrY',
-  callback: 'http://localhost:8081/access-token'
+  callback: 'http://localhost:8080/access-token'
 });
 
 var _requestSecret;
+var _accessToken;
+var _accessSecret;
+
+var optionsToMute;
 
 app.set('view engine', 'pug');
 
+app.use(express.static('public'));
+
 app.get('/', function(req, res) {
   res.render('index');
-});
-
-app.get('/search', function(req, res) {
-  res.render('search');
 });
 
 app.get('/request-token', function(req, res){
@@ -41,15 +43,40 @@ app.get('/access-token', function(req, res) {
       res.status(500).send(err);
     }
     else {
+      _accessToken = accessToken;
+      _accessSecret = accessSecret;
       twitter.verifyCredentials(accessToken, accessSecret, function(err, user) {
         if (err) {
           res.status(500).send(err);
         }
         else {
-          res.send(user);
+          twitter.friends('list', {
+            count: 200,
+            skip_status: true,
+            include_user_entities: false
+          },
+          accessToken,
+          accessSecret,
+          function(error, data, response) {
+            optionsToMute = data.users;
+            res.redirect('/search');
+          });
         }
       });
     }
+  });
+});
+
+app.get('/search', function(req, res) {
+  res.render('search', {results: optionsToMute});
+});
+
+app.get('/prepare-data', function(req, res) {
+  res.redirect('/db/new', {
+    consumerId: accessToken,
+    consumerSecret: accessSecret,
+    userId: req.query.id,
+    expire: req.query.duration
   });
 });
 
