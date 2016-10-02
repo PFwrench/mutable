@@ -4,6 +4,8 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "node-twitter-api": "^1.8.0",
-    "pug": "^2.0.0-beta6"
+    "pug": "^2.0.0-beta6",
+    "http": "0.0.0",
+    "http-post": "~0.1.1"
   }
 }
