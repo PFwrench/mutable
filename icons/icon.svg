@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_512x512@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="100%" id="radialGradient-1">
+            <stop stop-color="#FF3D3D" offset="0%"></stop>
+            <stop stop-color="#E10000" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_512x512@2x">
+            <g id="Icon">
+                <ellipse id="Oval" fill="#ECF0F1" cx="513.358983" cy="513.358983" rx="513.358983" ry="513.358983"></ellipse>
+                <ellipse id="Button_top" fill="url(#radialGradient-1)" cx="513.366379" cy="513.366379" rx="385.024785" ry="385.024785"></ellipse>
+                <polygon id="M" fill="#FFFFFF" points="241 740.976746 309.612295 258 317.011661 258 513.431173 654.202373 708.505346 258 715.904712 258 785.189677 740.976746 737.430138 740.976746 690.343268 395.224591 519.485199 740.976746 507.377147 740.976746 334.501069 392.533913 287.4142 740.976746"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
